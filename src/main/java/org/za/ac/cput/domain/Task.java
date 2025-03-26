@@ -6,9 +6,9 @@ public class Task {
     //Attributes
     private String title;
     private String description;
-    private String priority;
+    private Priority priority;
     private String taskID;
-    private String status;
+    private Status status;
     private LocalDate deadLine;
 
     //Constructors
@@ -25,27 +25,38 @@ public class Task {
         this.deadLine = builder.deadLine;
     }
 
+    //Enums
+    public enum Priority{
+        Low, Medium, High
+    }
+    public enum Status{
+        Complete, Not_Complete
+    }
+
     //toString method
 
     @Override
     public String toString() {
-        return "Task{" +
-                "title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", priority='" + priority + '\'' +
-                ", taskID='" + taskID + '\'' +
-                ", status='" + status + '\'' +
-                ", deadLine=" + deadLine +
-                '}';
+        return "Created Task:" + '\n' +
+                "-------------------------------------------------------" + '\n' +
+                "Task title: " + title + '\n' +
+                "Task description: " + description + '\n' +
+                "Task priority: " + priority + '\n' +
+                "Task ID: " + taskID + '\n' +
+                "Task status: " + status + '\n' +
+                "Task deadLine: " + deadLine + '\n' +
+                "-------------------------------------------------------"
+                ;
     }
+
 
     public static class Builder {
         //Attributes
         private String title;
         private String description;
-        private String priority;
+        private Priority priority;
         private String taskID;
-        private String status;
+        private Status status;
         private LocalDate deadLine;
 
         //Setters
@@ -57,7 +68,7 @@ public class Task {
             this.description = description;
             return this;
         }
-        public Builder setPriority(String priority) {
+        public Builder setPriority(Priority priority) {
             this.priority = priority;
             return this;
         }
@@ -65,7 +76,7 @@ public class Task {
             this.taskID = taskID;
             return this;
         }
-        public Builder setStatus(String status) {
+        public Builder setStatus(Status status) {
             this.status = status;
             return this;
         }
