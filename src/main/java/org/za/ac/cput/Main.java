@@ -1,6 +1,8 @@
 package org.za.ac.cput;
 
+import org.za.ac.cput.domain.Category;
 import org.za.ac.cput.domain.Task;
+import org.za.ac.cput.factory.CategoryFactory;
 import org.za.ac.cput.factory.TaskFactory;
 
 import java.util.Locale;
@@ -21,8 +23,8 @@ public class Main {
 
         System.out.print("Enter 'A' to create a task or 'E' to exit: ");
 
-        if(scanner.nextLine().equalsIgnoreCase("A")) {
-            int randomNumber = random.nextInt(1111)+1111;
+        if (scanner.nextLine().equalsIgnoreCase("A")) {
+            int randomNumber = random.nextInt(1111) + 1111;
             String taskId = Integer.toString(randomNumber);
 
             System.out.println("\nEnter task title: ");
@@ -34,9 +36,23 @@ public class Main {
             System.out.print("\nTask priority (Low, Medium, or High: ");
             String priority = scanner.nextLine();
 
+            System.out.print("\nEnter Category Name: ");
+            String name = scanner.nextLine();
+
+            System.out.print("\nEnter Category Description: ");
+            String categoryDescription = scanner.nextLine();
+
+            int categoryID = random.nextInt(100) + 1;
+
             Task task = TaskFactory.createTask(title, description, priority, taskId, "Not complete");
             System.out.println(task.toString());
-        }
 
+            Category category = CategoryFactory.createCategory(categoryID, name, categoryDescription);
+
+            if (category != null) {
+                System.out.println(category.toString());
+            }
+
+        }
     }
 }

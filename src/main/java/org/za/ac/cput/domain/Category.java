@@ -3,7 +3,7 @@ package org.za.ac.cput.domain;
 public class Category {
     private int categoryID;
     private String name;
-    private String description;
+    private String categoryDescription;
 
     private Category() {
 
@@ -12,22 +12,21 @@ public class Category {
     private Category(Builder builder) {
         this.categoryID = builder.categoryID;
         this.name = builder.name;
-        this.description = builder.description;
+        this.categoryDescription = builder.categoryDescription;
     }
 
     @Override
     public String toString() {
-        return "Category{" +
-                "categoryID=" + categoryID +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+        return "Category:" +
+                "CategoryI: " + categoryID +
+                ", Name: " + name + '\'' +
+                ", Description:" + categoryDescription;
     }
 
     public static class Builder {
         private int categoryID;
         private String name;
-        private String description;
+        private String categoryDescription;
 
         public Builder setCategoryID(int categoryID) {
             this.categoryID = categoryID;
@@ -39,15 +38,15 @@ public class Category {
             return this;
         }
 
-        public Builder setDescription(String description) {
-            this.description = description;
+        public Builder setCategoryDescription(String categoryDescription) {
+            this.categoryDescription = categoryDescription;
             return this;
         }
 
         public Builder copy(Category category) {
             this.categoryID = categoryID;
             this.name = name;
-            this.description = description;
+            this.categoryDescription = categoryDescription;
             return this;
 
         }
