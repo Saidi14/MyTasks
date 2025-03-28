@@ -1,5 +1,6 @@
 package org.za.ac.cput.domain;
 
+
 public class Category {
     private int categoryID;
     private String name;
@@ -43,10 +44,19 @@ public class Category {
             return this;
         }
 
+        public Category getTasks(int categoryID, String name, String categoryDescription) {
+            return new Category.Builder()
+                    .setCategoryID(categoryID)
+                    .setName(name)
+                    .setCategoryDescription(categoryDescription)
+                    .build();
+        }
+
+
         public Builder copy(Category category) {
-            this.categoryID = categoryID;
-            this.name = name;
-            this.categoryDescription = categoryDescription;
+            this.categoryID = category.categoryID;
+            this.name = category.name;
+            this.categoryDescription = category.categoryDescription;
             return this;
 
         }
